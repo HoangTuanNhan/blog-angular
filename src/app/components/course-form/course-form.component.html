@@ -1,0 +1,17 @@
+
+<form action="" method="POST" role="form">
+  <legend>Form Add</legend>
+
+  <div class="form-group">
+    <label for="">Name</label>
+    <input name="name" type="text" class="form-control" [(ngModel)]="course.name">
+    <label for="">Decription</label>
+    <textarea name="decription" class="form-control" rows="10" [(ngModel)]="course.decription"></textarea>
+    
+    <label for="">Fee</label>
+    <input name="fee" type="number" class="form-control"[(ngModel)]="course.fee" >
+  </div>
+
+  <button type="button" class="btn btn-primary" [style.margin-right.px]="5" (click)="onSubmitForm()" >{{nameButton}}</button>
+  <button type="button" class="btn btn-primary" (click)="onBack()">Back</button>
+</form>

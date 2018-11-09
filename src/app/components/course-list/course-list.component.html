@@ -45,13 +45,21 @@
       <td>{{i+ 1}}</td>
       <td>{{ item.name }}</td>
       <td>{{ item.decription }}</td>
-      <td>{{ item.fee }}</td>
+      <td>{{ item.fee | currency:'VND' }}</td>
       <td>
-       <button type="button" class="btn btn-success" [style.margin-right.px]='5' (click)="onEditCourse(item)" [routerLink]="['/courses',item.id,'edit' ]">Edit</button> 
-       <button type="button" class="btn btn-info" [style.margin-right.px]='5'>Detail</button>
+       <button type="button" 
+          class="btn btn-success" 
+          [style.margin-right.px]='5' 
+          [routerLink]="['/courses',item.id,'edit']"
+          >Edit</button> 
+       <button type="button" 
+          class="btn btn-info" [style.margin-right.px]='5'
+          [routerLink]="['/courses',item.id]"
+          >Detail</button>
        <button type="button" class="btn btn-danger" (click)="onDeleteCourse(item.id)">Delete</button>
       </td>
     </tr>
   </tbody>
 </table>
+
 

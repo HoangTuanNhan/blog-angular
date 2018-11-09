@@ -27,7 +27,6 @@ export class CourseListComponent implements OnInit, OnDestroy {
   }
   
   onDeleteCourse(id: number) {
-   
     this.todoService.deteleCourse(id).subscribe(data => { 
       for(let i = 0 ; i< this.courses.length; i++) {
         if(this.courses[i].id == id) {
@@ -41,10 +40,6 @@ export class CourseListComponent implements OnInit, OnDestroy {
     }, error => {
       this.todoService.handleError(error);
     });
-  }
-
-  onEditCourse(course: Todo) {
-
   }
 
   ngOnDestroy() {

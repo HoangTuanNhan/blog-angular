@@ -4,6 +4,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { CourseFormComponent } from './components/course-form/course-form.component';
+import { CourseDetailComponent } from './components/course-detail/course-detail.component';
 
 export const appRoutes : Routes = [
     {
@@ -31,6 +32,10 @@ export const appRoutes : Routes = [
             {
                 path:'add',
                 component: CourseFormComponent
+            },
+            {
+                path:':id',
+                component: CourseDetailComponent
             },
             {
                 path:':id/edit',

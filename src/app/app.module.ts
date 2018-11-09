@@ -13,6 +13,7 @@ import { CourseFormComponent } from './components/course-form/course-form.compon
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { CourseDetailComponent } from './components/course-detail/course-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     HeaderComponent,
     HomeComponent,
     NotFoundComponent,
+    CourseDetailComponent,
     
   ],
   imports: [

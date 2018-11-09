@@ -16,6 +16,7 @@ export class CourseFormComponent implements OnInit, OnDestroy {
   public subscriptionParam: Subscription;
   public subscriptionEdit: Subscription;
   public nameButton:string;
+  public nameTittle: string;
   constructor(
     private location: Location,
     private todoService: TodoService,
@@ -32,10 +33,12 @@ export class CourseFormComponent implements OnInit, OnDestroy {
     this.subscriptionParam = this.activatedRoute.params.subscribe(data => {
       if(data && data.id) {
         this.nameButton = 'Edit Couses';
+        this.nameTittle = "Edit form";
         this.subscriptionAdd = this.todoService.getCourse(data.id).subscribe(data => {
           this.course = data;
        });
       } else {
+        this.nameTittle = "Add form";
         this.nameButton = 'Save Couses';
       }
     });

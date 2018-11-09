@@ -29,9 +29,10 @@ export class TodoService {
       return this.http.get(`${this.API}/`+id);
   }
 
-  editCourse(course: Todo) {
+  editCourse(course: Todo) : Observable<any> {
     return this.http.put(`${this.API}/${course.id}`, course);
   }
+
 
   handleError(error) {
     if(error.error instanceof Error) {

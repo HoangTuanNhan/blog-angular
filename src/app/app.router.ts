@@ -5,20 +5,28 @@ import { CoursesComponent } from './components/courses/courses.component';
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { CourseFormComponent } from './components/course-form/course-form.component';
 import { CourseDetailComponent } from './components/course-detail/course-detail.component';
+import { LoginComponent } from './components/login/login.component';
+import {AuthGuard} from './services/guards/auth.guard';
 
 export const appRoutes : Routes = [
     {
         path: '',
-        redirectTo: '/index',
+        redirectTo: '/login',
         pathMatch: 'full'
       },
       {
         path: 'index',
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'login',
+        component: LoginComponent
       },
       {
         path: 'courses',
         component: CoursesComponent,
+        canActivate: [AuthGuard],
         children:[
             {
                 path: '',

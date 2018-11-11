@@ -14,6 +14,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CourseDetailComponent } from './components/course-detail/course-detail.component';
+import { LoginComponent } from './components/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ValidationComponent } from './components/validation/validation.component';
+import {AuthGuard} from './services/guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,8 @@ import { CourseDetailComponent } from './components/course-detail/course-detail.
     HomeComponent,
     NotFoundComponent,
     CourseDetailComponent,
+    LoginComponent,
+    ValidationComponent,
     
   ],
   imports: [
@@ -32,10 +38,12 @@ import { CourseDetailComponent } from './components/course-detail/course-detail.
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
     TodoService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

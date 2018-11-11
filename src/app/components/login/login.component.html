@@ -1,0 +1,39 @@
+
+<div class="alert alert-danger" *ngIf="error == 1">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <strong>Username or password is wrong!</strong> 
+</div>
+
+<div class="card" style="width: 80rem; margin-left: 150px;">
+    <form [formGroup]="myform"
+          autocomplete="off" 
+          novalidate
+          (ngSubmit)="onSubmitForm()">
+      <legend>LOGIN FORM</legend>
+      <div class="form-group" 
+          >
+        <label for="">Username</label>
+        <input type="text"
+               class="form-control"
+               name="txtUsername"
+               formControlName="username"
+               >
+        <app-validation 
+          [name-label] = "'Username'"
+          [control] = "myform.controls.username"></app-validation>
+      </div>
+      <div class="form-group">
+          <label for="">Password</label>
+          <input type="password"
+                 class="form-control"
+                 name="txtPassword"
+                 formControlName="password"
+                 >
+          <app-validation 
+            [name-label] = "'Password'"
+            [control] = "myform.controls.password"></app-validation>
+        </div>
+      <button type="submit" class="btn btn-primary" [style.margin-right.px]="5" [disabled]="!myform.valid">Login</button>
+      <button type="button" class="btn btn-info" (click)="onReset()">Reset</button>
+    </form>
+  </div>

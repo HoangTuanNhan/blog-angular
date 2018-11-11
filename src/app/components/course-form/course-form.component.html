@@ -41,7 +41,12 @@
         ></app-validation>
   </div>
 
-  <button type="button" class="btn btn-primary" [style.margin-right.px]="5" (click)="onSubmitForm()" >{{nameButton}}</button>
+  <button type="button"
+           class="btn btn-primary"
+          [style.margin-right.px]="5"
+          (click)="onSubmitForm()" 
+          [disabled]="!myform.valid"
+          >{{nameButton}}</button>
   <button type="button" class="btn btn-primary" (click)="onBack()">Back</button>
 </form>
 

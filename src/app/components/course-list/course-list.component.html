@@ -26,23 +26,28 @@
   <tbody>
       <tr>
           <td>
-            <input type="search" name="" class="form-control" >
+            <input 
+              type="search" 
+              name="id" 
+              class="form-control" 
+              [(ngModel)]="id"
+              >
           </td>
           <td>
-            <input type="search" name="" class="form-control" >
+            <input type="search" name="name" class="form-control" [(ngModel)]="name">
           </td>
           <td>
-              <input type="search" name="" class="form-control" >
+              <input type="search" name="decription" class="form-control"[(ngModel)]="decription" >
           </td>
           <td>
-              <input type="search" name="" class="form-control" >
+              <input type="search" name="fee" class="form-control" [(ngModel)]="fee">
           </td>
           <td>
 
           </td>
         </tr>
-    <tr *ngFor = "let item of courses; let i = index">
-      <td>{{i+ 1}}</td>
+    <tr *ngFor = "let item of courses | filter :id :name :decription :fee">
+      <td>{{item.id}}</td>
       <td>{{ item.name }}</td>
       <td>{{ item.decription }}</td>
       <td>{{ item.fee | currency:'VND' }}</td>

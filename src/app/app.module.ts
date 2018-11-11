@@ -18,6 +18,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ValidationComponent } from './components/validation/validation.component';
 import {AuthGuard} from './services/guards/auth.guard';
+import { FilterPipe } from './pipe/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {AuthGuard} from './services/guards/auth.guard';
     CourseDetailComponent,
     LoginComponent,
     ValidationComponent,
+    FilterPipe,
     
   ],
   imports: [

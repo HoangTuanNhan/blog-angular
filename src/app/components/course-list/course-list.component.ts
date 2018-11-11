@@ -14,6 +14,12 @@ export class CourseListComponent implements OnInit, OnDestroy {
   public course: Todo;
   public sub: Subscription;
   public error: number = 0;
+  //fiter course
+  public id : number;
+  public name: string;
+  public decription: string;
+  public fee: number;
+
   constructor(
     private todoService: TodoService,
     private router: Router,
@@ -25,7 +31,7 @@ export class CourseListComponent implements OnInit, OnDestroy {
       this.courses = data;
     });
   }
-  
+ 
   onDeleteCourse(id: number) {
     this.todoService.deteleCourse(id).subscribe(data => { 
       for(let i = 0 ; i< this.courses.length; i++) {

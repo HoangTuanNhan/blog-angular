@@ -12,7 +12,9 @@ password: hoangtuannhan
 
 ## Resful api server
 You need clone server from github: https://github.com/HoangTuanNhan/Server
-After that you need open terminal and run json-server --watch json-server
+After that you need open terminal (move to project Server) and run: 
+sudo npm install -g json-server
+json-server --watch db.json
 Document refs https://github.com/typicode/json-server
 ## Code scaffolding
 

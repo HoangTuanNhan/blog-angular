@@ -51,7 +51,6 @@ export class LoginComponent implements OnInit {
       username : this.myform.value.username,
       password : this.myform.value.password
     }
-    console.log(username,password);
     if(username == "admin" && password == "hoangtuannhan") {
       localStorage.setItem('users', JSON.stringify(users));
         this.router.navigate(['/courses/list']);

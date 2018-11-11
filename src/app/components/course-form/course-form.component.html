@@ -1,17 +1,44 @@
 
-<form action="" method="POST" role="form">
+<form [formGroup]="myform" 
+       novalidate
+       autocomplete="off"  >
   <legend>{{nameTittle}}</legend>
-
   <div class="form-group">
     <label for="">Name</label>
-    <input name="name" type="text" class="form-control" [(ngModel)]="course.name">
+    <input name="name"
+            type="text" 
+            class="form-control" 
+            [(ngModel)]="course.name"
+            formControlName="name"
+            >
+    <app-validation 
+        [control]="myform.controls.name"
+        [name-label]="'Name'"
+        ></app-validation>
+  </div>
+  <div class="form-group">
     <label for="">Decription</label>
-    <textarea name="decription" class="form-control" rows="10" [(ngModel)]="course.decription"></textarea>
+    <textarea name="decription" 
+              class="form-control"
+               rows="10" 
+               [(ngModel)]="course.decription"
+               formControlName="decription"></textarea>
+    <app-validation 
+        [control]="myform.controls.decription"
+        [name-label]="'Decription'"
+        ></app-validation>
+  </div>
+  <div class="form-group">
     <label for="">Fee</label>
     <input name="fee" 
           type="number" 
           class="form-control"
-          [(ngModel)]="course.fee">
+          [(ngModel)]="course.fee"
+          formControlName="fee">
+    <app-validation 
+        [control]="myform.controls.fee"
+        [name-label]="'Price'"
+        ></app-validation>
   </div>
 
   <button type="button" class="btn btn-primary" [style.margin-right.px]="5" (click)="onSubmitForm()" >{{nameButton}}</button>

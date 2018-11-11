@@ -1,9 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Location } from '@angular/common' ;
 import { Todo } from '../../models/todo';
 import { TodoService } from '../../services/todo.service';
 import { Subscription } from 'rxjs'
-import { Router, ActivatedRoute } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-course-form',
   templateUrl: './course-form.component.html',
@@ -17,16 +18,22 @@ export class CourseFormComponent implements OnInit, OnDestroy {
   public subscriptionEdit: Subscription;
   public nameButton:string;
   public nameTittle: string;
+  //validate form
+  name: FormGroup;
+  decription: FormGroup;
+  fee: FormGroup;
+  myform: FormGroup;
   constructor(
     private location: Location,
     private todoService: TodoService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
     ) { }
 
   ngOnInit() {
     this.course = new Todo();
     this.loadData();
+    this.createForm();
   }
 
   loadData() {
@@ -42,6 +49,21 @@ export class CourseFormComponent implements OnInit, OnDestroy {
         this.nameButton = 'Save Couses';
       }
     });
+  }
+  //validate form
+  createForm() {
+    this.myform = new FormGroup({
+      name: new FormControl('', [
+        Validators.required
+      ]),
+      decription: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(500)
+      ]),
+      fee: new FormControl('', [
+        Validators.required
+      ])
+    })
   }
 
   onBack(){

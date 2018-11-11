@@ -20,7 +20,7 @@ export class ValidationComponent implements OnInit {
 
   getErrorMessage(key , value) {
     let messages = {
-      'required': `${this.nameControl} Required`,
+      'required': `${this.nameControl} required`,
       'minlength': `${this.nameControl} should be must ${value.requiredLength} character`,
       'maxlength': `${this.nameControl} more than ${value.requiredLength} character`,
       'pattern' : `${this.nameControl} invalid format `
